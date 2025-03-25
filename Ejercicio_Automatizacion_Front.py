@@ -8,7 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import time
 # Constantes de configuración
 LOGIN_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
 VALID_USER = "Admin"
@@ -71,8 +71,11 @@ if __name__ == "__main__":
     try:
         # Ejecutar pruebas secuencialmente
         test_credenciales_invalidas(driver)
+        time.sleep(3)
         test_username_vacio(driver)
+        time.sleep(3)
         test_campos_vacios(driver)
+        time.sleep(3)
         test_validacion_login(driver)
         
     except AssertionError as e:
